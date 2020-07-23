@@ -18,14 +18,13 @@ public class Main extends Application {
         FileReader inputStream = null;
         try {
             inputStream = new FileReader("map.txt");
-            int c,i=5,j=5,counter=0;
+            int c,i=0,j=0,counter=0;
             List<Rectangle> rectangleList=new ArrayList<>();
             while ((c = inputStream.read()) != -1) {
                 System.out.println("1");
                 rectangleList.add(new Rectangle(5, 5));
                 rectangleList.get(counter).setX(i);
                 rectangleList.get(counter).setY(j);
-                i++;
                 switch ((char)c){
                     case '0':
                         System.out.println("2");
@@ -53,13 +52,18 @@ public class Main extends Application {
                 System.out.println("3");
                 root.getChildren().add(rectangleList.get(counter));
                 counter++;
+                i= i+5 ;
+                if(counter %165 == 0 ){
+                    j = j + 5 ;
+                    i = 0 ;
+                }
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Scene scene = new Scene(root, 825, 525, Color.BLACK);
+        Scene scene = new Scene(root, 900, 900, Color.BLACK);
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();
