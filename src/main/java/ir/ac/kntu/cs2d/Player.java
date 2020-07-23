@@ -1,14 +1,12 @@
 package ir.ac.kntu.cs2d;
 
 public class Player {
-    private int heart;
-    private int money;
-    private Colt colt;
+    private int heart=100;
+    private int money=800;
+    private Weapon weapon;
     private boolean haveArmor;
-    public Player(Colt colt){
-        this.heart =100 ;
-        this.money = 800;
-        this.colt=colt;
+    public Player(Weapon weapon){
+        this.weapon=weapon;
     }
 
     public void setHaveArmor(boolean haveArmor) {

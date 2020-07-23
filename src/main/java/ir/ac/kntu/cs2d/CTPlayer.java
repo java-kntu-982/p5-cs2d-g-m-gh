@@ -5,7 +5,7 @@ public class CTPlayer extends Player {
 
     private Weapon weapon;
     public CTPlayer() {
-        super(Colt.USP);
+        super(Weapon.USP);
     }
 
     public void setWeapon(Weapon weapon) throws InvalidWeaponException {

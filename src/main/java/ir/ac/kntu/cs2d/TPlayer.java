@@ -3,7 +3,7 @@ package ir.ac.kntu.cs2d;
 public class TPlayer extends Player{
     private Weapon weapon;
     public TPlayer() {
-        super(Colt.GLOCK);
+        super(Weapon.GLOCK);
     }
 
     public void setWeapon(Weapon weapon) throws InvalidWeaponException {
