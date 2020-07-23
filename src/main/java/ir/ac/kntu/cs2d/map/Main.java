@@ -51,6 +51,8 @@ public class Main extends Application {
                         case '7':
                             rectangleList.get(counter).setFill(Color.SKYBLUE);
                             break;
+                        default:
+                            break;
                     }
                     root.getChildren().add(rectangleList.get(counter));
                     counter++;
