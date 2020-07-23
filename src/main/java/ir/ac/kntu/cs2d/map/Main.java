@@ -19,7 +19,6 @@ public class Main extends Application {
             inputStream = new FileReader("map.txt");
             int c,i=1;
             while ((c = inputStream.read()) != -1) {
-                //TODO
                 if(c==1) {
                     Rectangle rectangle = new Rectangle(1, 1);
                     rectangle.setFill(Color.RED);
