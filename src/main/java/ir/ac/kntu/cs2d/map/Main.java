@@ -21,14 +21,14 @@ public class Main extends Application {
             int c,i=0,j=0,counter=0;
             List<Rectangle> rectangleList=new ArrayList<>();
             while ((c = inputStream.read()) != -1) {
-                if ((char) c == '0' || (char) c == '1' || (char) c == '2' || (char) c == '3' || (char) c == '4' || (char) c == '5') {
+                if ((char) c == '0' || (char) c == '1' || (char) c == '2' || (char) c == '3' || (char) c == '4' || (char) c == '5' || (char) c == '6'|| (char) c == '7') {
                     rectangleList.add(new Rectangle(5, 5));
                     rectangleList.get(counter).setX(i);
                     rectangleList.get(counter).setY(j);
                     i = i+ 5 ;
                     switch ((char) c) {
                         case '0':
-                            rectangleList.get(counter).setFill(Color.BLUE);
+                            rectangleList.get(counter).setFill(Color.PEACHPUFF);
                             break;
                         case '1':
                             rectangleList.get(counter).setFill(Color.WHITE);
@@ -44,6 +44,12 @@ public class Main extends Application {
                             break;
                         case '5':
                             rectangleList.get(counter).setFill(Color.GRAY);
+                            break;
+                        case '6':
+                            rectangleList.get(counter).setFill(Color.PINK);
+                            break;
+                        case '7':
+                            rectangleList.get(counter).setFill(Color.SKYBLUE);
                             break;
                     }
                     root.getChildren().add(rectangleList.get(counter));
