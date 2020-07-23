@@ -1,81 +1,66 @@
-//package ir.ac.kntu.cs2d.map;
-//
-//import java.io.*;
-//import java.util.Timer;
-//import java.util.TimerTask;
-//import javafx.animation.AnimationTimer;
-//import javafx.application.Application;
-//import javafx.application.Platform;
-//import javafx.event.EventHandler;
-//import javafx.scene.Group;
-//import javafx.scene.Scene;
-//import javafx.scene.control.Button;
-//import javafx.scene.input.KeyCode;
-//import javafx.scene.input.KeyEvent;
-//import javafx.scene.input.MouseButton;
-//import javafx.scene.input.MouseEvent;
-//import javafx.scene.paint.Color;
-//import javafx.scene.shape.*;
-//import javafx.scene.shape.Rectangle;
-//import javafx.scene.text.Font;
-//import javafx.scene.text.Text;
-//import javafx.stage.Stage;
-//import java.util.Timer;
-//import java.util.TimerTask;
-//public class Main extends Application{
-//    @Override
-//    public void start(Stage primaryStage) {
-//        //TODO: Assume that your program starts from this method
-//        Pane root = new Pane();
-//        Rectangle rect=new Re
-//
-//
-//        polygon1.setFill(Color.GREEN);
-//        polygon1.setStroke(Color.BLACK);
-//        root.getChildren().addAll(polygon1,polygon2,polygon3,polygon4,polygon5,polygon6,polygon7,polygon8,polygon9,polygon10,polygon11,polygon12);
-//        Scene scene = new Scene(root, 800, 800, Color.WHITE);
-//
-//        primaryStage.setScene(scene);
-//        primaryStage.setResizable(false);
-//        primaryStage.show();
-//
-//
-//    }
-//
-//    @Override
-//    public void init() {
-//        System.out.println("Initializing...");
-//    }
-//
-//    @Override
-//    public void stop() {
-//        System.out.println("Closing....");
-//    }
-//
-//    public static void main(String[] args) {
-//        launch(args);
-//    }
-//    public static void main(String[] args) throws IOException {
-//
-//        FileReader inputStream = null;
-//        FileWriter outputStream = null;
-//
-//        try {
-//            inputStream = new FileReader("file.txt");
-//
-//            int c;
-//            while ((c = inputStream.read()) != -1) {
-//                outputStream.write(c);
-//            }
-//        } finally {
-//            if (inputStream != null) {
-//                inputStream.close();
-//            }
-//        }
-//    }
-//
-//}
-//
-//
-//
-//
+package ir.ac.kntu.cs2d.map;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
+public class Main{
+    private TileMap loadMap(String filename) throws IOException {
+        ArrayList lines = new ArrayList();
+        int width = 0;
+        int height = 0;
+// read every line in the text file into the list
+        BufferedReader reader = new BufferedReader(
+                new FileReader(filename));
+        while (true) {
+            String line = reader.readLine();
+// no more lines to read
+            if (line == null) {
+                reader.close();
+                break;
+            }
+// add every line except for comments
+            if (!line.startsWith("#")) {
+                lines.add(line);
+                width = Math.max(width, line.length());
+            }
+        }
+// parse the lines to create a TileEngine
+        height = lines.size();
+        TileMap newMap = new TileMap(width, height);
+        for (int y=0; y<height; y++) {
+            String line = (String)lines.get(y);
+            for (int x=0; x<line.length(); x++) {
+                char ch = line.charAt(x);
+// check if the char represents tile A, B,C, etc.
+                int tile = ch - 'A';
+                if (tile >= 0 && tile < tiles.size()) {
+                    newMap.setTile(x, y, (Image)tiles.get(tile));
+                }
+// check if the char represents a sprite
+                else if (ch == 'o') {
+                    addSprite(newMap, coinSprite, x, y);
+                }
+                else if (ch == '!') {
+                    addSprite(newMap, musicSprite, x, y);
+                }
+}
+            else if (ch == '*') {
+                addSprite(newMap, goalSprite, x, y);
+            }
+            else if (ch == '1') {
+                addSprite(newMap, grubSprite, x, y);
+            }
+            else if (ch == '2') {
+                addSprite(newMap, flySprite, x, y);
+            }
+        }
+    }
+    // add the player to the map
+    Sprite player = (Sprite)playerSprite.clone();
+player.setX(TileMapRenderer.tilesToPixels(3));
+player.setY(0);
+newMap.setPlayer(player);
+return newMap;
+}
