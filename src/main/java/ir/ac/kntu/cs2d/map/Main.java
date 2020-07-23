@@ -25,7 +25,7 @@ public class Main extends Application {
                     rectangleList.add(new Rectangle(5, 5));
                     rectangleList.get(counter).setX(i);
                     rectangleList.get(counter).setY(j);
-                    i += 5;
+                    i = i+ 5 ;
                     switch ((char) c) {
                         case '0':
                             rectangleList.get(counter).setFill(Color.BLUE);
@@ -48,7 +48,6 @@ public class Main extends Application {
                     }
                     root.getChildren().add(rectangleList.get(counter));
                     counter++;
-                    i = i + 5;
                     if (counter % 165 == 0) {
                         j = j + 5;
                         i = 0;
@@ -60,7 +59,7 @@ public class Main extends Application {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Scene scene = new Scene(root, 900, 900, Color.BLACK);
+        Scene scene = new Scene(root, 825, 525, Color.BLACK);
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();
