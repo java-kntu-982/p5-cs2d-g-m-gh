@@ -6,9 +6,9 @@ public class TPlayer extends Player{
         super(Colt.GLOCK);
     }
 
-    public void setWeapon(Weapon weapon) throws InvalidWeopen {
+    public void setWeapon(Weapon weapon) throws InvalidWeaponException {
         if(weapon.equals(Weapon.M4A1) || weapon.equals(Weapon.FAMAS)){
-            throw new InvalidWeopen("Invalid weapon!");
+            throw new InvalidWeaponException("Invalid weapon!");
         }
         this.weapon = weapon;
     }

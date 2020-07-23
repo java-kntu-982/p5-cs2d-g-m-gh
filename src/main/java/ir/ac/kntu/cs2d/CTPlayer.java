@@ -6,9 +6,9 @@ public class CTPlayer extends Player {
         super(Colt.USP);
     }
 
-    public void setWeapon(Weapon weapon) throws InvalidWeopen {
+    public void setWeapon(Weapon weapon) throws InvalidWeaponException {
         if(weapon.equals(Weapon.AK47) || weapon.equals(Weapon.GALIL)){
-            throw new InvalidWeopen("Invalid weapon!");
+            throw new InvalidWeaponException("Invalid weapon!");
         }else {
             this.weapon = weapon;
         }
