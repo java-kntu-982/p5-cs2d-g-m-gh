@@ -85,6 +85,12 @@
             <artifactId>javafx-fxml</artifactId>
             <version>${javafx.version}</version>
         </dependency>
+        <dependency>
+            <groupId>net.sourceforge.pmd</groupId>
+            <artifactId>pmd-cpp</artifactId>
+            <version>6.25.0</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
 </project>
