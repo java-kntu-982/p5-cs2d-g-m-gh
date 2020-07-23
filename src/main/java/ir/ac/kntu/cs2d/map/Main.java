@@ -21,45 +21,46 @@ public class Main extends Application {
             int c,i=1,j=1,counter=0;
             List<Rectangle> rectangleList=new ArrayList<>();
             while ((c = inputStream.read()) != -1) {
-                System.out.println("1");
-                rectangleList.add(new Rectangle(1, 1));
-                rectangleList.get(counter).setX(i);
-                rectangleList.get(counter).setY(j);
-                i++;
-                switch (c){
-                    case 0:
-                        System.out.println("2");
-                        rectangleList.get(counter).setFill(Color.MINTCREAM);
-                        break;
-                    case 1:
-                        rectangleList.get(counter).setFill(Color.WHITE);
-                        break;
-                    case 2:
-                        rectangleList.get(counter).setFill(Color.BROWN);
-                        break;
-                    case 3:
-                        rectangleList.get(counter).setFill(Color.ORANGE);
-                        break;
-                    case 4:
-                        rectangleList.get(counter).setFill(Color.RED);
-                        break;
-                    case 5:
-                        rectangleList.get(counter).setFill(Color.GRAY);
-                        break;
-                    default:
-                        rectangleList.get(counter).setFill(Color.YELLOW);
-                        break;
+                if(c!='*') {
+                    rectangleList.add(new Rectangle(10, 10));
+                    rectangleList.get(counter).setX(i);
+                    rectangleList.get(counter).setY(j);
+                    i += 10;
+                    switch ((char) c) {
+                        case '0':
+                            rectangleList.get(counter).setFill(Color.MINTCREAM);
+                            break;
+                        case '1':
+                            rectangleList.get(counter).setFill(Color.WHITE);
+                            break;
+                        case '2':
+                            rectangleList.get(counter).setFill(Color.BROWN);
+                            break;
+                        case '3':
+                            rectangleList.get(counter).setFill(Color.ORANGE);
+                            break;
+                        case '4':
+                            rectangleList.get(counter).setFill(Color.RED);
+                            break;
+                        case '5':
+                            rectangleList.get(counter).setFill(Color.GRAY);
+                            break;
+                        default:
+                            rectangleList.get(counter).setFill(Color.YELLOW);
+                            break;
+                    }
+                    root.getChildren().add(rectangleList.get(counter));
+                    counter++;
+                }else if(c=='*'){
+                    j+=10;
                 }
-                System.out.println("3");
-                root.getChildren().add(rectangleList.get(counter));
-                counter++;
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Scene scene = new Scene(root, 1350, 800, Color.BLACK);
+        Scene scene = new Scene(root, 825, 525, Color.BLACK);
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();
