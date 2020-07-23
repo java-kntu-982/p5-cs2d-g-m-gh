@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ir.ac.kntu</groupId>
-    <artifactId>p5-cs2d</artifactId>
+    <artifactId>javafx-sample-assignment</artifactId>
     <version>1.0-SNAPSHOT</version>
     <build>
         <plugins>
@@ -15,8 +14,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>${maven.compiler.source}</source>
-                    <target>${maven.compiler.target}</target>
+                    <source>11</source>
+                    <target>11</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -41,12 +40,12 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>
-            ${project.build.sourceEncoding}
+        <project.reporting.outputEncoding>${project.build.sourceEncoding}
         </project.reporting.outputEncoding>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
         <junit.jupiter.version>5.6.0</junit.jupiter.version>
+        <javafx.version>11.0.2</javafx.version>
     </properties>
 
     <dependencies>
@@ -61,22 +60,31 @@
             <artifactId>checkstyle</artifactId>
             <version>8.29</version>
         </dependency>
+        <!--        &lt;!&ndash;  JavaFX Events, Utilities, Beans, Collections |        &ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.openjfx</groupId>-->
+        <!--            <artifactId>javafx-base</artifactId>-->
+        <!--            <version>${javafx.version}</version>-->
+        <!--        </dependency>-->
+
+        <!--            JavaFX Swing Compatibility module | (graphics)      -->
         <dependency>
-            <groupId>net.sourceforge.pmd</groupId>
-            <artifactId>pmd-java</artifactId>
-            <version>6.24.0</version>
-            <scope>test</scope>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-swing</artifactId>
+            <version>${javafx.version}</version>
         </dependency>
+        <!--  JavaFX  Webkit support module |(controls + media + graphics)  -->
         <dependency>
-            <groupId>net.sourceforge.pmd</groupId>
-            <artifactId>pmd-core</artifactId>
-            <version>6.24.0</version>
-            <scope>test</scope>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-web</artifactId>
+            <version>${javafx.version}</version>
         </dependency>
+        <!--    JavaFX FXML module | (graphics)    -->
         <dependency>
-            <groupId>org.apache.tiles</groupId>
-            <artifactId>tiles-jsp</artifactId>
-            <version>3.0.8</version>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>${javafx.version}</version>
         </dependency>
     </dependencies>
+
 </project>
