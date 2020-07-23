@@ -1,14 +1,16 @@
 package ir.ac.kntu.cs2d;
 
 public class CTPlayer extends Player {
-    private ir.ac.kntu.cs2d.Weapon weapon;
+
+
+    private Weapon weapon;
     public CTPlayer() {
-        super(ir.ac.kntu.cs2d.Colt.USP);
+        super(Colt.USP);
     }
 
-    public void setWeapon(ir.ac.kntu.cs2d.Weapon weapon) throws ir.ac.kntu.cs2d.InvalidWeaponException {
-        if(weapon.equals(ir.ac.kntu.cs2d.Weapon.AK47) || weapon.equals(ir.ac.kntu.cs2d.Weapon.GALIL)){
-            throw new ir.ac.kntu.cs2d.InvalidWeaponException("Invalid weapon!");
+    public void setWeapon(Weapon weapon) throws InvalidWeaponException {
+        if(weapon.equals(Weapon.AK47) || weapon.equals(Weapon.GALIL)){
+            throw new InvalidWeaponException("Invalid weapon!");
         }else {
             this.weapon = weapon;
         }
